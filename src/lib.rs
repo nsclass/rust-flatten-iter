@@ -1,7 +1,6 @@
-pub trait IteratorExt: Iterator {
+pub trait IteratorExt: Iterator + Sized {
     fn our_flatten(self) -> Flatten<Self>
     where
-        Self: Sized,
         Self::Item: IntoIterator;
 }
 
@@ -11,7 +10,6 @@ where
 {
     fn our_flatten(self) -> Flatten<Self>
     where
-        Self: Sized,
         Self::Item: IntoIterator,
     {
         flatten(self)
